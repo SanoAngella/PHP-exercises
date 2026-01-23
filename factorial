@@ -1,0 +1,22 @@
+<html>
+<body>
+    
+<form action="#" method="post">
+    Enter a number: <input type="number" name="num">
+    <br>
+    <input type="submit">
+</form>
+<?php
+
+if($_SERVER["REQUEST_METHOD"]== "POST"){
+
+$num= $_REQUEST['num'];
+$factorial = 1;
+for ($x=$num; $x>=1; $x--) {
+    $factorial = $factorial * $x;
+}
+echo "Factorial of $num is $factorial";
+}
+?>
+</body>
+</html>
