@@ -1,0 +1,17 @@
+<html>
+    <body>
+    <?php
+    for($i = 0; $i < 100; $i++) {
+        printf("%02d", $i);
+
+        if($i < 99) {
+            echo ", ";
+        }
+
+        if (($i + 1) % 10 == 0) {
+            echo "<br>";
+        }
+    }
+    ?>
+    </body>
+</html>
