@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <?php
+echo "<table  border='1' cellspacing='0px'>";
+for($row=1; $row<=8; $row++) {
+    echo "<tr>";
+    for($col=1; $col<=8; $col++) {
+        $total = $row + $col;
+        $color = ($total % 2 == 0) ? "#FFFFFF" : "#000000";
+        echo "<td height='30px' width='30px' bgcolor='$color'></td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
+    </body>
+</html>
