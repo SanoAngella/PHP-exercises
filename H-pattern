@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP H Pattern</title>
+</head>
+<body>
+    <h2>Alphabet Pattern 'H'</h2>
+
+    <pre>
+<?php
+for ($row = 0; $row < 7; $row++) {
+    
+    if ($row == 3) {
+        echo "*****"; 
+    } 
+
+    else {
+        echo "*  *"; 
+    }
+    
+    echo "\n"; 
+}
+?>
+    </pre>
+
+</body>
+</html>
