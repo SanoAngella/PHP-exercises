@@ -1,0 +1,49 @@
+<html>
+    
+    <body>
+
+<form action="#" method="POST">
+    Percentage: <input type="number" step="any" name="marks"> 
+    <input type="submit" value="Display Grade">
+</form>
+        <?php
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+        $marks= $_POST['marks'];
+if (!is_numeric($marks) || $marks < 0 || $marks > 100) {
+        echo "<strong>Error:</strong> Please enter a valid percentage between 0 and 100.";
+    } else {
+        switch(true){
+            case ($marks >=90 && $marks <=100):
+                $grade = "A";
+                break;
+        
+            case ($marks >= 80): 
+                $grade = "B"; 
+                break;
+            case ($marks >= 70): 
+                $grade = "C"; 
+                break;
+            case ($marks >= 60): 
+                $grade = "D"; 
+                break;
+            case ($marks >= 50): 
+                $grade = "E"; 
+                break;
+            case ($marks >= 40): 
+                $grade = "F"; 
+                break;
+            case ($marks >= 30): 
+                $grade = "S"; 
+                break;
+            default: 
+                $grade = "U";
+        }
+    
+        echo "PERCENTAGE: " . $marks . "% <br>";
+        echo "Grade: " . $grade;
+        }}
+        
+        ?>
+    </body>
+</html>
