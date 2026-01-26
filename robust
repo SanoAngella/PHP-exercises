@@ -1,0 +1,38 @@
+<?php
+
+
+// 1. Only allow POST requests
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Allow: POST");
+    http_response_code(405);
+    die("Method Not Allowed");
+}
+
+// 2. Collect and sanitize input
+// htmlspecialchars prevents basic XSS attacks when echoing back
+$name    = htmlspecialchars(trim($_POST['name'] ?? ''));
+$email   = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+$message = htmlspecialchars(trim($_POST['message'] ?? ''));
+
+// 3. Basic Validation
+$errors = [];
+
+if (empty($name))    $errors[] = "Name is required.";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
+if (strlen($message) < 10) $errors[] = "Message must be at least 10 characters.";
+
+// 4. Logic Execution
+if (empty($errors)) {
+  
+   
+    echo json_encode([
+        "status" => "success",
+        "message" => "Thank you, $name. Your message has been received."
+    ]);
+} else {
+    http_response_code(400);
+    echo json_encode([
+        "status" => "error",
+        "errors" => $errors
+    ]);
+}
