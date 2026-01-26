@@ -36,7 +36,8 @@
                             echo "Error";
                         } else {
                             echo $n1 / $n2;
-                       
+                        }
+                        break;
                 }
             }
         ?>" readonly><br><br>
