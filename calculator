@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        input[type="submit"]{
+            padding: 10px;
+        }
+    </style>
+<body>
+    <h2>Simple Calculator Operations</h2>
+    
+    <form method="post">
+        First Number: <input type="number" name="num1" step="any" value="<?php echo $_POST['num1']; ?>"><br><br>
+        Second Number: <input type="number" name="num2" step="any" value="<?php echo $_POST['num2']; ?>"><br><br>
+        
+        Result: <input type="text" step="any" name="results" value="<?php
+           
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $n1 = $_POST['num1'];
+                $n2 = $_POST['num2'];
+                
+                
+                $op = $_POST['operator'];
+
+                switch ($op) {
+                    case "+":
+                        echo $n1 + $n2;
+                        break;
+                    case "-":
+                        echo $n1 - $n2;
+                        break;
+                    case "*":
+                        echo $n1 * $n2;
+                        break;
+                    case "/":
+                        if ($n2 == 0) {
+                            echo "Error";
+                        } else {
+                            echo $n1 / $n2;
+                       
+                }
+            }
+        ?>" readonly><br><br>
+        
+        <input type="submit" name="operator" value="+">
+        <input type="submit" name="operator" value="-">
+        <input type="submit" name="operator" value="*">
+        <input type="submit" name="operator" value="/">
+    </form>
+</body>
+</html>
