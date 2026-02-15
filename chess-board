@@ -1,6 +1,7 @@
 <html>
     <body>
         <?php
+
 echo "<table  border='1' cellspacing='0px'>";
 for($row=1; $row<=8; $row++) {
     echo "<tr>";
